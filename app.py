@@ -52,7 +52,6 @@ server = app.server
 app.title=tabtitle
 
 ########### Set up the layout
-'''
 app.layout = html.Div(children=[
     html.H1(myheading),
     dcc.Graph(
@@ -64,22 +63,7 @@ app.layout = html.Div(children=[
     html.A('Data Source', href=sourceurl),
     ]
 )
-'''
 
-app.layout = html.Div([
-    html.H1("Food Product Exports in the United States", style={"textAlign": "center"}),
-    html.Div([html.Div([dcc.Dropdown(id='product-selected1',
-                                     options=[{'label': i.title(), 'value': i} for i in df.columns.values[2:]],
-                                     value="poultry")], className="six columns",
-                       style={"width": "40%", "float": "right"}),
-              html.Div([dcc.Dropdown(id='product-selected2',
-                                     options=[{'label': i.title(), 'value': i} for i in df.columns.values[2:]],
-                                     value='beef')], className="six columns", style={"width": "40%", "float": "left"}),
-              ], className="row", style={"padding": 50, "width": "60%", "margin-left": "auto", "margin-right": "auto"}),
-    dcc.Graph(id='my-graph'),
-
-    # dcc.Link('Go to Source Code', href='{}/code'.format(app_name))
-], className="container")
 
 if __name__ == '__main__':
     app.run_server()
