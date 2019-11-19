@@ -41,9 +41,7 @@ beer_layout = go.Layout(
 
 beer_fig = go.Figure(data=beer_data, layout=beer_layout)
 
-df = pd.read_csv(
-    'https://ianrosewrites/'
-    '1011010/days.csv')
+df = pd.read_csv('https://ianrosewrites/1011010/days.csv')
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
