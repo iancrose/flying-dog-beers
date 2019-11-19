@@ -54,6 +54,7 @@ server = app.server
 app.title=tabtitle
 
 ########### Set up the layout
+'''
 app.layout = html.Div(children=[
     html.H1(myheading),
     dcc.Graph(
@@ -65,8 +66,9 @@ app.layout = html.Div(children=[
     html.A('Data Source', href=sourceurl),
     ]
 )
+'''
 
-layout = html.Div([
+app.layout = html.Div([
     html.H1("Food Product Exports in the United States", style={"textAlign": "center"}),
     html.Div([html.Div([dcc.Dropdown(id='product-selected1',
                                      options=[{'label': i.title(), 'value': i} for i in df.columns.values[2:]],
