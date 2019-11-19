@@ -66,8 +66,7 @@ app.layout = html.Div(children=[
     ]
 )
 
-'''
-app.layout = html.Div([
+layout = html.Div([
     html.H1("Food Product Exports in the United States", style={"textAlign": "center"}),
     html.Div([html.Div([dcc.Dropdown(id='product-selected1',
                                      options=[{'label': i.title(), 'value': i} for i in df.columns.values[2:]],
@@ -81,7 +80,6 @@ app.layout = html.Div([
 
     # dcc.Link('Go to Source Code', href='{}/code'.format(app_name))
 ], className="container")
-'''
 
 if __name__ == '__main__':
     app.run_server()
