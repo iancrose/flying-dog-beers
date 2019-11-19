@@ -3,6 +3,8 @@ import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
 
+import pandas as pd
+
 ########### Define your variables
 beers=['Chesapeake Stout', 'Snake Dog IPA', 'Imperial Porter', 'Double Dog IPA', 'FifthBeer']
 ibu_values=[35, 60, 85, 75, 61]
@@ -39,6 +41,9 @@ beer_layout = go.Layout(
 
 beer_fig = go.Figure(data=beer_data, layout=beer_layout)
 
+df = pd.read_csv(
+    'https://ianrosewrites/'
+    '1011010/days.csv')
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
@@ -47,6 +52,7 @@ server = app.server
 app.title=tabtitle
 
 ########### Set up the layout
+'''
 app.layout = html.Div(children=[
     html.H1(myheading),
     dcc.Graph(
@@ -58,6 +64,22 @@ app.layout = html.Div(children=[
     html.A('Data Source', href=sourceurl),
     ]
 )
+'''
+
+app.layout = html.Div([
+    html.H1("Food Product Exports in the United States", style={"textAlign": "center"}),
+    html.Div([html.Div([dcc.Dropdown(id='product-selected1',
+                                     options=[{'label': i.title(), 'value': i} for i in df.columns.values[2:]],
+                                     value="poultry")], className="six columns",
+                       style={"width": "40%", "float": "right"}),
+              html.Div([dcc.Dropdown(id='product-selected2',
+                                     options=[{'label': i.title(), 'value': i} for i in df.columns.values[2:]],
+                                     value='beef')], className="six columns", style={"width": "40%", "float": "left"}),
+              ], className="row", style={"padding": 50, "width": "60%", "margin-left": "auto", "margin-right": "auto"}),
+    dcc.Graph(id='my-graph'),
+
+    # dcc.Link('Go to Source Code', href='{}/code'.format(app_name))
+], className="container")
 
 if __name__ == '__main__':
     app.run_server()
