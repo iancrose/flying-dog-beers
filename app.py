@@ -13,6 +13,9 @@ df = pd.read_csv('https://ianrosewrites.com/1011010/days.csv')
 
 pv = pd.pivot_table(df, index=['daynum'], values=['yes'], aggfunc=sum, fill_value=0)
 
+trace1 = go.Bar(x=pv.index, y=pv[('yes')], name='Counted')
+trace2 = go.Bar(x=pv.index, y=pv[('yes')], name='Not Counted')
+
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
