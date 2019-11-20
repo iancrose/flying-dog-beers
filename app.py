@@ -11,18 +11,18 @@ tabtitle='Dash Playground'
 ########### Load the data
 df = pd.read_csv('https://ianrosewrites.com/1011010/days.csv')
 
-pv = pd.pivot_table(df, index=['daynum'], columns=["daywk"], values=['yes'], fill_value=0)
-
 trace1 = go.Bar(x=df['daynum'], y=df['yes'], name='Counted')
 trace2 = go.Bar(x=df['daynum'], y=df['no'], name='Not Counted')
 
+pv = pd.pivot_table(df, index=['daynum'], columns=["daywk"], values=['yes'], fill_value=0)
+
 tracesu = go.Bar(x=pv.index, y=pv[('yes', 'Sun')], name='Sunday')
-tracemo = go.Bar(x=pv.index, y=pv[('yes', 'Sun')], name='Monday')
-tracetu = go.Bar(x=pv.index, y=pv[('yes', 'Sun')], name='Tuesday')
-tracewe = go.Bar(x=pv.index, y=pv[('yes', 'Sun')], name='Wednesday')
-traceth = go.Bar(x=pv.index, y=pv[('yes', 'Sun')], name='Thursday')
-tracefr = go.Bar(x=pv.index, y=pv[('yes', 'Sun')], name='Friday')
-tracesa = go.Bar(x=pv.index, y=pv[('yes', 'Sun')], name='Saturday')
+tracemo = go.Bar(x=pv.index, y=pv[('yes', 'Mon')], name='Monday')
+tracetu = go.Bar(x=pv.index, y=pv[('yes', 'Tues')], name='Tuesday')
+tracewe = go.Bar(x=pv.index, y=pv[('yes', 'Wed')], name='Wednesday')
+traceth = go.Bar(x=pv.index, y=pv[('yes', 'Thurs')], name='Thursday')
+tracefr = go.Bar(x=pv.index, y=pv[('yes', 'Fri')], name='Friday')
+tracesa = go.Bar(x=pv.index, y=pv[('yes', 'Sat')], name='Saturday')
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
