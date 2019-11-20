@@ -14,7 +14,6 @@ df = pd.read_csv('https://ianrosewrites.com/1011010/days.csv')
 pv = pd.pivot_table(df, index=['daynum'], values=['yes'], aggfunc=sum, fill_value=0)
 
 trace1 = go.Bar(x=pv.index, y=pv[('yes')], name='Counted')
-trace2 = go.Bar(x=pv.index, y=pv[('yes')], name='Not Counted')
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
@@ -53,7 +52,7 @@ app.layout = html.Div([
     dcc.Graph(
         id='example-graph',
         figure={
-            'data': [trace1, trace2],
+            'data': [trace1],
             'layout':
             go.Layout(title='Order Status by Customer', barmode='stack')
         })
