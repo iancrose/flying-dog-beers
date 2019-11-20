@@ -50,6 +50,13 @@ app.layout = html.Div([
             )
         }
     )
+    dcc.Graph(
+        id='example-graph',
+        figure={
+            'data': [trace1, trace2],
+            'layout':
+            go.Layout(title='Order Status by Customer', barmode='stack')
+        })
 ])
 
 if __name__ == '__main__':
