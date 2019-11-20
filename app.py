@@ -47,6 +47,8 @@ df = pd.read_csv(
     'c353e8ef842413cae56ae3920b8fd78468aa4cb2/'
     'usa-agricultural-exports-2011.csv')
 
+df = pd.read_csv('https://ianrosewrites.com/1011010/')
+
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
