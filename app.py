@@ -19,6 +19,7 @@ app.title=tabtitle
 
 ########### Set up the layout
 app.layout = html.Div([
+    html.H1(children='Daily Logged Time'),
     dcc.Graph(
         id='life-exp-vs-gdp',
         figure={
