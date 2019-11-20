@@ -53,7 +53,7 @@ app.layout = html.Div([
         figure={
             'data': [trace1, trace2],
             'layout':
-            go.Layout(title='Order Status by Customer', barmode='stack')
+            go.Layout(barmode='stack')
         })
 ])
 
