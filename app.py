@@ -11,8 +11,18 @@ tabtitle='Dash Playground'
 ########### Load the data
 df = pd.read_csv('https://ianrosewrites.com/1011010/days.csv')
 
+pv = pd.pivot_table(df, index=['daynum'], columns=["daywk"], values=['yes'], fill_value=0)
+
 trace1 = go.Bar(x=df['daynum'], y=df['yes'], name='Counted')
 trace2 = go.Bar(x=df['daynum'], y=df['no'], name='Not Counted')
+
+tracesu = go.Bar(x=pv.index, y=pv[('yes', 'Sun')], name='Sunday')
+tracemo = go.Bar(x=pv.index, y=pv[('yes', 'Sun')], name='Monday')
+tracetu = go.Bar(x=pv.index, y=pv[('yes', 'Sun')], name='Tuesday')
+tracewe = go.Bar(x=pv.index, y=pv[('yes', 'Sun')], name='Wednesday')
+traceth = go.Bar(x=pv.index, y=pv[('yes', 'Sun')], name='Thursday')
+tracefr = go.Bar(x=pv.index, y=pv[('yes', 'Sun')], name='Friday')
+tracesa = go.Bar(x=pv.index, y=pv[('yes', 'Sun')], name='Saturday')
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
@@ -52,6 +62,13 @@ app.layout = html.Div([
         id='example-graph',
         figure={
             'data': [trace1, trace2],
+            'layout':
+            go.Layout(barmode='stack')
+        }), 
+    dcc.Graph(
+        id='example-graph-2',
+        figure={
+            'data': [tracesu, tracemo, tracetu, tracewe, traceth, tracefr, tracesa],
             'layout':
             go.Layout(barmode='stack')
         })
