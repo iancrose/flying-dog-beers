@@ -6,6 +6,7 @@ import plotly.graph_objs as go
 import pandas as pd
 
 ########### Define your variables
+'''
 beers=['Chesapeake Stout', 'Snake Dog IPA', 'Imperial Porter', 'Double Dog IPA', 'FifthBeer']
 ibu_values=[35, 60, 85, 75, 61]
 abv_values=[5.4, 7.1, 9.2, 4.3, 4.8]
@@ -18,8 +19,11 @@ label1='IBU'
 label2='ABV'
 githublink='https://github.com/austinlasseter/flying-dog-beers'
 sourceurl='https://www.flyingdog.com/beers/'
+'''
+tabtitle='Beer!'
 
 ########### Set up the chart
+'''
 bitterness = go.Bar(
     x=beers,
     y=ibu_values,
@@ -40,6 +44,7 @@ beer_layout = go.Layout(
 )
 
 beer_fig = go.Figure(data=beer_data, layout=beer_layout)
+'''
 
 df = pd.read_csv(
     'https://gist.githubusercontent.com/chriddyp/'
