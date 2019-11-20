@@ -34,7 +34,7 @@ app.layout = html.Div([
                         'line': {'width': 0.5, 'color': 'white'}
                     },
                     name=i
-                ) for i in df.continent.unique()
+                ) # for i in df.continent.unique()
             ],
             'layout': go.Layout(
                 xaxis={'type': 'log', 'title': 'GDP Per Capita'},
