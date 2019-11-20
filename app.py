@@ -47,8 +47,6 @@ df = pd.read_csv(
     'c353e8ef842413cae56ae3920b8fd78468aa4cb2/'
     'usa-agricultural-exports-2011.csv')
 
-df = pd.read_csv('https://ianrosewrites.com/1011010/')
-
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
@@ -56,20 +54,6 @@ server = app.server
 app.title=tabtitle
 
 ########### Set up the layout
-'''
-app.layout = html.Div(children=[
-    html.H1(myheading),
-    dcc.Graph(
-        id='flyingdog',
-        figure=beer_fig
-    ),
-    html.A('Code on Github', href=githublink),
-    html.Br(),
-    html.A('Data Source', href=sourceurl),
-    ]
-)
-'''
-
 app.layout = html.Div([
     html.H1("Food Product Exports in the United States", style={"textAlign": "center"}),
     html.Div([html.Div([dcc.Dropdown(id='product-selected1',
