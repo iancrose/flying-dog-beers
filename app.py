@@ -14,7 +14,7 @@ df = pd.read_csv('https://ianrosewrites.com/1011010/days.csv')
 trace1 = go.Bar(x=df['daynum'], y=df['yes'], name='Counted')
 trace2 = go.Bar(x=df['daynum'], y=df['no'], name='Not Counted')
 
-pv = pd.pivot_table(df, index=['daynum'], columns=["daywk"], values=['yes'], fill_value=0)
+pv = pd.pivot_table(df, index=['wknum'], columns=["daywk"], values=['yes'], fill_value=0)
 
 tracesu = go.Bar(x=pv.index, y=pv[('yes', '\'Sun\'')], name='Sunday')
 tracemo = go.Bar(x=pv.index, y=pv[('yes', '\'Mon\'')], name='Monday')
