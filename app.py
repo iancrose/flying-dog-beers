@@ -47,7 +47,7 @@ app.layout = html.Div([
                 hovermode='closest'
             )
         }
-    )
+    ), 
     dcc.Graph(
         id='example-graph',
         figure={
